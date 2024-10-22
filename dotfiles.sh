@@ -8,3 +8,7 @@ TRGT_LIST=(alacritty hypr waybar)
 for target in $TRGT_LIST; do
     ln -sfT "$TRGT/$target" "$LINKNAME/$target"
 done
+
+# TODO:
+# https://asus-linux.org/manual/asusctl-manual/
+# setting up asusd-user
