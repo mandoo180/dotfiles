@@ -1,0 +1,11 @@
+configuration {
+    /* https://github.com/davatorium/rofi/ */
+    show-icons: true;
+    width: 900;
+    lines: 15;
+    columns: 1;
+    font: "Iosevka Nerd Font";
+    bw: 1;
+}
+
+@theme "k"
