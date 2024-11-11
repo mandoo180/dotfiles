@@ -1,0 +1,20 @@
+* languages
+lua
+python
+javascript/typescript
+java
+c/c++
+rust
+
+* npm 
+neovim
+typescript
+typescript-language-server
+pyright
+
+* pip
+pynvim
+
+* distro packages
+luarocks
+lua-language-server

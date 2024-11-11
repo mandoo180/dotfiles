@@ -1,0 +1,55 @@
+{
+    "editor.fontFamily": "Iosevka Nerd Font, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vscode-neovim.compositeKeys": {
+        "jk": {
+            "command": "vscode-neovim.escape"
+        }
+    },
+    "vscode-neovim.ctrlKeysForInsertMode": [
+        "a",
+        "c",
+        "d",
+        "h",
+        "j",
+        "m",
+        "o",
+        "r",
+        "t",
+        "u",
+        "w",
+        "f",
+        "b",
+        "n",
+        "p"
+    ],
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+	"terminal.integrated.profiles.windows": {
+		"PowerShell": {
+			"source": "PowerShell",
+			"icon": "terminal-powershell",
+            "path": [
+                "C:/Users/kyeongsoo/scoop/apps/pwsh/current/pwsh.exe"
+            ]
+		},
+		"Command Prompt": {
+			"path": [
+				"${env:windir}\\Sysnative\\cmd.exe",
+				"${env:windir}\\System32\\cmd.exe"
+			],
+			"args": [],
+			"icon": "terminal-cmd"
+		},
+		"Git Bash": {
+			"source": "Git Bash"
+		}
+	},
+    "terminal.integrated.env.windows": {
+
+    },
+    "extensions.ignoreRecommendations": true,
+    "security.workspace.trust.untrustedFiles": "open"
+}

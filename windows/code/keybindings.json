@@ -1,0 +1,109 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "command": "cursorRight",
+        "key": "ctrl+f",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "cursorLeft",
+        "key": "ctrl+b",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "cursorUp",
+        "key": "ctrl+p",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "cursorDown",
+        "key": "ctrl+n",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "cursorEnd",
+        "key": "ctrl+e",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "cursorHome",
+        "key": "ctrl+a",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "deleteAllRight",
+        "key": "ctrl+k",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+f",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<Right>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+b",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<Left>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+n",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<Down>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+p",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<Up>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+a",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<Home>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+e",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<End>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+e",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<End>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "alt+f",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<C-Right>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "alt+b",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<C-Left>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+d",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<Del>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+g",
+        "when": "editorTextFocus && neovim.mode == insert",
+        "args": "<ESC>"
+    },
+    {
+        "command": "deleteAllRight",
+        "key": "ctrl+k",
+        "when": "editorTextFocus && neovim.mode == insert"
+    }
+]

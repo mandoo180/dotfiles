@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-TRGT="$HOME/Projects/dotfiles"
+TRGT="$HOME/Projects/dotfiles/linux"
 LINKNAME="$HOME/.config"
 
 TRGT_LIST=(alacritty hypr waybar rofi)
