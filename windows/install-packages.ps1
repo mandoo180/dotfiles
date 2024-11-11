@@ -16,4 +16,6 @@ scoop install vcredist `
               gdb `
               coreutils `
               zip `
-              unzip 
+              unzip `
+              ripgrep `
+              fd 
