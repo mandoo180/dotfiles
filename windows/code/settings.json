@@ -1,55 +1,93 @@
 {
-    "editor.fontFamily": "Iosevka Nerd Font, Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+  "workbench.colorTheme": "One Dark Pro Flat",
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "editor.minimap.enabled": false,
+  "editor.guides.indentation": false,
+  "editor.renderWhitespace": "none",
+  "editor.renderLineHighlight": "none",
+  "editor.matchBrackets": "never",
+  "editor.lightbulb.enabled": "off",
+  "editor.hover.enabled": false,
+  "editor.showFoldingControls": "never",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.overviewRulerBorder": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.fontFamily": "Iosevka Nerd Font, JetBrainsMono Nerd Font",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "breadcrumbs.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "git.decorations.enabled": false,
+  "scm.diffDecorations": "none",
+  "files.insertFinalNewline": true,
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.fontFamily": "Iosevka Nerd Font, JetBrainsMono Nerd Font",
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.compositeKeys": {
+    "jk": {
+      "command": "vscode-neovim.escape"
+    }
+  },
+  "vscode-neovim.ctrlKeysForInsertMode": [
+    "a",
+    "c",
+    "d",
+    "h",
+    "j",
+    "m",
+    "o",
+    "r",
+    "t",
+    "u",
+    "w",
+    "f",
+    "b",
+    "n",
+    "p"
+  ],
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+      "path": [
+        "C:/Users/kyeongsoo/scoop/apps/pwsh/current/pwsh.exe"
+      ]
     },
-    "vscode-neovim.compositeKeys": {
-        "jk": {
-            "command": "vscode-neovim.escape"
-        }
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
     },
-    "vscode-neovim.ctrlKeysForInsertMode": [
-        "a",
-        "c",
-        "d",
-        "h",
-        "j",
-        "m",
-        "o",
-        "r",
-        "t",
-        "u",
-        "w",
-        "f",
-        "b",
-        "n",
-        "p"
-    ],
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
-	"terminal.integrated.profiles.windows": {
-		"PowerShell": {
-			"source": "PowerShell",
-			"icon": "terminal-powershell",
-            "path": [
-                "C:/Users/kyeongsoo/scoop/apps/pwsh/current/pwsh.exe"
-            ]
-		},
-		"Command Prompt": {
-			"path": [
-				"${env:windir}\\Sysnative\\cmd.exe",
-				"${env:windir}\\System32\\cmd.exe"
-			],
-			"args": [],
-			"icon": "terminal-cmd"
-		},
-		"Git Bash": {
-			"source": "Git Bash"
-		}
-	},
-    "terminal.integrated.env.windows": {
-
-    },
-    "extensions.ignoreRecommendations": true,
-    "security.workspace.trust.untrustedFiles": "open"
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  "terminal.integrated.env.windows": {},
+  "security.workspace.trust.untrustedFiles": "open"
 }
