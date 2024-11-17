@@ -73,7 +73,7 @@
       "source": "PowerShell",
       "icon": "terminal-powershell",
       "path": [
-        "C:/Users/kyeongsoo/scoop/apps/pwsh/current/pwsh.exe"
+        "${env:USERPROFILE}/scoop/apps/pwsh/current/pwsh.exe"
       ]
     },
     "Command Prompt": {
