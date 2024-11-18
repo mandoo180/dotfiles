@@ -8,3 +8,5 @@ Set-PSReadLineOption -EditMode Emacs
 
 $env:XDG_CONFIG_HOME = "$HOME\.config"
 $env:XDG_DATA_HOME = "$HOME\.local"
+
+$env:PATH = "$env:PATH;$HOME\scripts"
