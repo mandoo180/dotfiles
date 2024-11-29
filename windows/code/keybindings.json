@@ -1,5 +1,11 @@
 // Place your key bindings in this file to override the defaults
 [
+    // terminal
+    {
+        "command": "deleteAllRight",
+        "key": "ctrl+k",
+        "when": "terminalFocus"
+    },
     {
         "command": "cursorRight",
         "key": "ctrl+f",
@@ -30,80 +36,535 @@
         "key": "ctrl+a",
         "when": "terminalFocus"
     },
+
+    // editor navigation
     {
-        "command": "deleteAllRight",
-        "key": "ctrl+k",
-        "when": "terminalFocus"
-    },
-    {
-        "command": "vscode-neovim.send",
+        "command": "cursorRight",
         "key": "ctrl+f",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<Right>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "cursorLeft",
         "key": "ctrl+b",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<Left>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "cursorDown",
         "key": "ctrl+n",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<Down>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "cursorUp",
         "key": "ctrl+p",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<Up>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "cursorHome",
         "key": "ctrl+a",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<Home>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "cursorEnd",
         "key": "ctrl+e",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<End>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
-        "key": "ctrl+e",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<End>"
-    },
-    {
-        "command": "vscode-neovim.send",
+        "command": "cursorWordEndRight",
         "key": "alt+f",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<C-Right>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "cursorWordStartLeft",
         "key": "alt+b",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<C-Left>"
+        "when": "textInputFocus"
     },
     {
-        "command": "vscode-neovim.send",
-        "key": "ctrl+d",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<Del>"
+        "command": "actions.find",
+        "key": "ctrl+s",
+        "when": "editorFocus || editorIsOpen"
     },
     {
-        "command": "vscode-neovim.send",
+        "command": "actions.find",
+        "key": "ctrl+r",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "command": "editor.action.nextMatchFindAction",
+        "key": "ctrl+s",
+        "when": "editorFocus && findInputFocussed"
+    },
+    {
+        "command": "editor.action.previousMatchFindAction",
+        "key": "ctrl+r",
+        "when": "editorFocus && findInputFocussed"
+    },
+    {
+        "command": "editor.action.startFindReplaceAction",
+        "key": "ctrl+shift+r",
+        "when": "editorFocus && findInputFocussed"
+    },
+    {
+        "command": "cursorBottom",
+        "key": "alt+shift+.",
+        "when": "editorFocus"
+    },
+    {
+        "command": "cursorTop",
+        "key": "alt+shift+,",
+        "when": "editorFocus"
+    },
+
+    // *selection
+
+    {
+        "key": "ctrl+space",
+        "command": "editor.action.setSelectionAnchor",
+        "when": "editorFocus"
+    },
+    {
         "key": "ctrl+g",
-        "when": "editorTextFocus && neovim.mode == insert",
-        "args": "<ESC>"
+        "command": "editor.action.cancelSelectionAnchor",
+        "when": "editorFocus && selectionAnchorSet"
     },
     {
-        "command": "deleteAllRight",
+        "key": "ctrl+space",
+        "command": "editor.action.cancelSelectionAnchor",
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "cancelSelection",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorRight",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "cursorRightSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorLeft",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "cursorLeftSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorDown",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "cursorDownSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorUp",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "cursorUpSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorHome",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "cursorHomeSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorEnd",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "cursorEndSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "alt+f",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorWordEndRight",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "alt+f",
+        "command": "cursorWordEndRightSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "alt+b",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorWordEndLeft",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "alt+b",
+        "command": "cursorWordEndLeftSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "pagedown",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorPageDown",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "pagedown",
+        "command": "cursorPageDownSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "pageup",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorPageUp",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "pageup",
+        "command": "cursorPageUpSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "alt+shift+.",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorBottom",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "alt+shift+.",
+        "command": "cursorBottomSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    {
+        "key": "alt+shift+,",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorTop",
+                "editor.action.selectFromAnchorToCursor"
+            ]
+        },
+        "when": "editorFocus && selectionAnchorSet"
+    },
+    {
+        "key": "alt+shift+,",
+        "command": "cursorTopSelect",
+        "when": "editorFocus && editor.hasSelection"
+    },
+    // TODO: think more combination
+    {
+        "key": "alt+h",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorFocus"
+    },
+    {
+        "command": "editor.action.smartSelect.shrink",
+        "key": "alt+shift+h",
+        "when": "editorFocus"
+    },
+    {
+        "command": "editor.action.selectAll",
+        "key": "ctrl+x h",
+        "when": "editorFocus"
+    },
+    {
+        "command": "cursorRightSelect",
+        "key": "ctrl+shift+f",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorLeftSelect",
+        "key": "ctrl+shift+b",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorDownSelect",
+        "key": "ctrl+shift+n",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorUpSelect",
+        "key": "ctrl+shift+p",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorHomeSelect",
+        "key": "ctrl+shift+a",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorEndSelect",
+        "key": "ctrl+shift+e",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorWordEndRightSelect",
+        "key": "alt+shift+f",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "cursorWordStartLeftSelect",
+        "key": "alt+shift+b",
+        "when": "textInputFocus"
+    },
+
+    // copy, kill, delete
+    {
+        "command": "deleteRight",
+        "key": "ctrl+d",
+        "when": "textInputFocus"
+    },
+    {
         "key": "ctrl+k",
-        "when": "editorTextFocus && neovim.mode == insert"
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorEndSelect",
+                "editor.action.clipboardCutAction"
+            ]
+        },
+        "when": "textInputFocus"
+    },
+    {
+        "command": "deleteWordEndRight",
+        "key": "alt+d",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "deleteWordStartLeft",
+        "key": "alt+backspace",
+        "when": "textInputFocus"
+    },
+    {
+        "command": "editor.action.clipboardCutAction",
+        "key": "ctrl+w"
+    },
+    {
+        "key": "alt+w",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "editor.action.clipboardCopyAction",
+                "cancelSelection"
+            ]
+        },
+        "when": "editor.hasSelection"
+    },
+    {
+        "command": "editor.action.clipboardPasteAction",
+        "key": "ctrl+y"
+    },
+
+    // workbench & files
+    {
+        "key": "ctrl+x k",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+x c",
+        "command": "workbench.action.closeAllEditors"
+    },
+    {
+        "key": "ctrl+x ctrl+c",
+        "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "ctrl+x ctrl+s",
+        "command": "workbench.action.files.save"
+    },
+    {
+        "key": "ctrl+x ctrl+f",
+        "command": "workbench.action.quickOpen",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+x ctrl+r",
+        "command": "workbench.action.quickOpenRecent",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+x",
+        "command": "workbench.action.showCommands",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+s r",
+        "command": "workbench.action.findInFiles",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+1",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "alt+1",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarVisible"
+    },
+    {
+        "key": "shift+escape",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarVisible"
+    },
+    {
+        "command": "workbench.action.togglePanel",
+        "key": "shift+escape",
+        "when": "panelVisible"
+    },
+    {
+        "command": "workbench.action.closeEditorsInOtherGroups",
+        "key": "ctrl+x 1",
+        "when": "editorFocus"
+    },
+    {
+        "command": "workbench.action.splitEditorDown",
+        "key": "ctrl+x 2",
+        "when": "editorFocus"
+    },
+    {
+        "command": "workbench.action.splitEditorRight",
+        "key": "ctrl+x 3",
+        "when": "editorFocus"
+    },
+    {
+        "command": "workbench.action.closeGroup",
+        "key": "ctrl+x 0",
+        "when": "editorFocus"
+    },
+    {
+        "command": "workbench.action.focusNextGroup",
+        "key": "ctrl+x o",
+        "when": "editorFocus"
+    },
+
+    // escaping ctrl+g
+    { 
+        "key": "ctrl+g",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "workbench.view.search.active"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    { 
+        "key": "ctrl+g",
+        "command": "cancelSelection",
+        "when": "editorHasSelection"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "hideCodeActionWidget",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "search.action.cancel",
+        "when": "listFocus && searchViewletVisible && !inputFocus && !treestickyScrollFocused && searchState != '0'"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "cancelRenameInput",
+        "when": "editorFocus && renameInputVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeParameterHints",
+        "when": "editorFocus && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "leaveSnippet",
+        "when": "inSnippetMode && textInputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible && !isComposing"
     }
+    
 ]
