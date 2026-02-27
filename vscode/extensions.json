@@ -1,0 +1,22 @@
+{
+    "recommendations": [
+        "tuttieee.emacs-mcx",
+        "enkia.tokyo-night",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.cpptools",
+        "shopify.ruby-lsp",
+        "sumneko.lua",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "tootone.org-mode",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+        "editorconfig.editorconfig"
+    ]
+}

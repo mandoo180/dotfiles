@@ -1,0 +1,475 @@
+// =============================================================================
+// VSCode User Settings — Emacs-like Configuration (macOS)
+// Replicates: emacs.light.d (Hasliberg theme, Olivetti, Eglot, Magit workflow)
+// =============================================================================
+//
+// RECOMMENDED EXTENSIONS:
+//
+//   Emacs Keybindings:
+//     tuttieee.emacs-mcx                      Awesome Emacs Keymap
+//
+//   Theme:
+//     enkia.tokyo-night                        Tokyo Night (base for Hasliberg overrides)
+//
+//   Language Support:
+//     ms-python.python                         Python
+//     ms-python.vscode-pylance                 Pylance (Python LSP)
+//     dbaeumer.vscode-eslint                   ESLint
+//     esbenp.prettier-vscode                   Prettier
+//     ms-vscode.cpptools                       C/C++
+//     shopify.ruby-lsp                         Ruby LSP
+//     sumneko.lua                              Lua Language Server
+//
+//   Writing & Markdown:
+//     yzhang.markdown-all-in-one               Markdown All in One
+//     DavidAnson.vscode-markdownlint           Markdown Lint
+//     streetsidesoftware.code-spell-checker    Code Spell Checker (Flyspell)
+//
+//   Git:
+//     eamodio.gitlens                          GitLens (Magit-like blame/history)
+//     mhutchie.git-graph                       Git Graph
+//
+//   Org Mode:
+//     tootone.org-mode                         Org Mode
+//
+//   Utilities:
+//     redhat.vscode-yaml                       YAML
+//     tamasfe.even-better-toml                 TOML
+//     EditorConfig.EditorConfig                EditorConfig
+//
+// =============================================================================
+{
+    // =========================================================================
+    // FONT
+    // Emacs: Iosevka Nerd Font, height 140, Korean fallback D2Coding
+    // =========================================================================
+    "editor.fontFamily": "'Iosevka Nerd Font', 'D2Coding', 'Noto Sans CJK KR', 'NanumGothicCoding', monospace",
+    "editor.fontSize": 14,
+    "editor.fontWeight": "normal",
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 1.15,
+
+    "terminal.integrated.fontFamily": "'Iosevka Nerd Font', 'D2Coding', 'Noto Sans CJK KR', monospace",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.lineHeight": 1.15,
+
+    // =========================================================================
+    // THEME — Tokyo Night + Hasliberg color overrides
+    // Hasliberg palette: bg #2A2C2E, fg #ECF1FF, primary #A7CBF1,
+    //   secondary #809BCE, accent #FBB151, warning #FB74C3, info #A8AEC7
+    // =========================================================================
+    "workbench.colorTheme": "Tokyo Night",
+
+    "workbench.colorCustomizations": {
+        "editor.background": "#2A2C2E",
+        "editor.foreground": "#ECF1FF",
+        "sideBar.background": "#252729",
+        "sideBar.foreground": "#B4C2CF",
+        "activityBar.background": "#222426",
+        "panel.background": "#252729",
+        "terminal.background": "#2A2C2E",
+        "titleBar.activeBackground": "#222426",
+        "titleBar.inactiveBackground": "#222426",
+        "statusBar.background": "#2A2C2E",
+        "statusBar.foreground": "#B4C2CF",
+        "statusBar.border": "#ECF1FF",
+        "tab.activeBackground": "#2A2C2E",
+        "tab.activeForeground": "#ECF1FF",
+        "tab.inactiveBackground": "#222426",
+        "tab.inactiveForeground": "#809BCE",
+        "editorGroupHeader.tabsBackground": "#222426",
+        "editorCursor.foreground": "#FBB151",
+        "editor.selectionBackground": "#3A3C3E",
+        "editor.selectionHighlightBackground": "#3A3C3E88",
+        "editorLineNumber.foreground": "#555A60",
+        "editorLineNumber.activeForeground": "#FBB151",
+        "focusBorder": "#A7CBF1",
+        "textLink.foreground": "#A7CBF1",
+        "textLink.activeForeground": "#A7CBF1",
+        "editorLink.activeForeground": "#A7CBF1",
+        "editor.findMatchBackground": "#A7CBF144",
+        "editor.findMatchHighlightBackground": "#A7CBF122",
+        "activityBarBadge.background": "#FBB151",
+        "activityBarBadge.foreground": "#2A2C2E",
+        "badge.background": "#FBB151",
+        "badge.foreground": "#2A2C2E",
+        "editorGroup.border": "#3A3C3E",
+        "panel.border": "#3A3C3E",
+        "sideBar.border": "#3A3C3E",
+        "editorWarning.foreground": "#FB74C3",
+        "editorError.foreground": "#FF6C6B",
+        "editorInfo.foreground": "#A8AEC7",
+        "editorBracketMatch.background": "#3A3C3E",
+        "editorBracketMatch.border": "#A7CBF1",
+        "minimap.background": "#2A2C2E",
+        "scrollbarSlider.background": "#3A3C3E88",
+        "scrollbarSlider.hoverBackground": "#3A3C3ECC",
+        "scrollbarSlider.activeBackground": "#A7CBF166"
+    },
+
+    // Syntax colors approximating Hasliberg font-lock faces
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": ["string", "string.quoted"],
+                "settings": { "foreground": "#FBB151" }
+            },
+            {
+                "scope": ["comment", "comment.block", "comment.line"],
+                "settings": { "foreground": "#6A7080", "fontStyle": "italic" }
+            },
+            {
+                "scope": ["keyword", "keyword.control", "storage.type", "storage.modifier"],
+                "settings": { "foreground": "#ECF1FF", "fontStyle": "bold" }
+            },
+            {
+                "scope": ["entity.name.function", "support.function"],
+                "settings": { "foreground": "#A7CBF1" }
+            },
+            {
+                "scope": ["variable", "variable.other"],
+                "settings": { "foreground": "#A7CBF1" }
+            },
+            {
+                "scope": ["entity.name.type", "support.type"],
+                "settings": { "foreground": "#C0D8F5" }
+            },
+            {
+                "scope": ["constant", "constant.language", "constant.numeric"],
+                "settings": { "foreground": "#D4E4F8", "fontStyle": "bold" }
+            },
+            {
+                "scope": ["variable.other.property", "meta.object-literal.key"],
+                "settings": { "foreground": "#809BCE" }
+            },
+            {
+                "scope": ["comment.block.documentation", "string.quoted.docstring"],
+                "settings": { "foreground": "#A8AEC7", "fontStyle": "italic" }
+            }
+        ]
+    },
+
+    // =========================================================================
+    // CURSOR
+    // Emacs: (cursor-type '(bar . 3))
+    // =========================================================================
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 3,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": "on",
+
+    // =========================================================================
+    // EDITOR BEHAVIOR
+    // Emacs: tab-width 4, delete-selection-mode, electric-pair-mode,
+    //   show-paren-mode, truncate-lines, tab-always-indent 'complete
+    // =========================================================================
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.autoIndent": "full",
+    "editor.tabCompletion": "on",
+    "editor.wordWrap": "off",
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.autoSurround": "languageDefined",
+    "editor.matchBrackets": "always",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.semanticHighlighting.enabled": true,
+
+    // =========================================================================
+    // SCROLLING
+    // Emacs: pixel-scroll-precision-mode, scroll-conservatively 101
+    // =========================================================================
+    "editor.smoothScrolling": true,
+    "editor.scrollBeyondLastLine": false,
+    "workbench.list.smoothScrolling": true,
+    "editor.stickyScroll.enabled": true,
+
+    // =========================================================================
+    // LINE NUMBERS
+    // Emacs: display-line-numbers in prog-mode, width 6
+    // =========================================================================
+    "editor.lineNumbers": "on",
+    "editor.glyphMargin": true,
+
+    // =========================================================================
+    // FILE HANDLING
+    // Emacs: no backup/lock files, auto-revert, UTF-8, trash
+    // =========================================================================
+    "files.encoding": "utf8",
+    "files.autoGuessEncoding": false,
+    "files.eol": "\n",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.hotExit": "onExitAndWindowClose",
+    "files.enableTrash": true,
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/.git/**": true,
+        "**/target/**": true,
+        "**/build/**": true,
+        "**/dist/**": true,
+        "**/.venv/**": true,
+        "**/__pycache__/**": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+
+    // =========================================================================
+    // SEARCH & COMPLETION
+    // Emacs: flex + basic + partial-completion, completion-ignore-case t
+    // =========================================================================
+    "editor.suggest.filterGraceful": true,
+    "editor.suggest.showStatusBar": true,
+    "editor.suggest.localityBonus": true,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.suggestSelection": "first",
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
+    },
+    "search.smartCase": true,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/target": true,
+        "**/build": true,
+        "**/dist": true,
+        "**/.venv": true,
+        "**/__pycache__": true,
+        "**/.git": true,
+        "**/bower_components": true
+    },
+
+    // =========================================================================
+    // UI — MINIMAL CHROME
+    // Emacs: no menu-bar, scroll-bar, tool-bar; tab-bar for workspaces
+    // =========================================================================
+    "window.menuBarVisibility": "toggle",
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollbar.horizontal": "auto",
+    "editor.scrollbar.verticalScrollbarSize": 8,
+    "editor.scrollbar.horizontalScrollbarSize": 8,
+    "workbench.activityBar.location": "top",
+    "breadcrumbs.enabled": true,
+    "workbench.statusBar.visible": true,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.wrapTabs": false,
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.sideBar.location": "left",
+    "window.title": "${activeEditorShort}${separator}${rootName}",
+    "window.titleBarStyle": "native",
+    "workbench.startupEditor": "none",
+
+    // =========================================================================
+    // ZEN MODE (Olivetti equivalent)
+    // Emacs: olivetti-body-width 80
+    // =========================================================================
+    "zenMode.centerLayout": true,
+    "zenMode.fullScreen": false,
+    "zenMode.hideActivityBar": true,
+    "zenMode.hideLineNumbers": true,
+    "zenMode.hideStatusBar": false,
+    "zenMode.silentNotifications": true,
+
+    // =========================================================================
+    // SPELL CHECKING (Flyspell equivalent)
+    // Extension: streetsidesoftware.code-spell-checker
+    // =========================================================================
+    "cSpell.enabled": true,
+    "cSpell.language": "en",
+    "cSpell.enabledFileTypes": {
+        "markdown": true,
+        "org": true,
+        "plaintext": true,
+        "latex": true,
+        "python": true,
+        "javascript": true,
+        "typescript": true,
+        "c": true,
+        "cpp": true,
+        "ruby": true,
+        "lua": true
+    },
+    "cSpell.checkOnlyEnabledFileTypes": false,
+    "cSpell.diagnosticLevel": "Information",
+    "cSpell.showAutocompleteSuggestions": true,
+
+    // =========================================================================
+    // EMACS KEYMAP (Awesome Emacs Keymap)
+    // Emacs: mac-command-modifier 'meta
+    // =========================================================================
+    "emacs-mcx.useMetaPrefixMacCmd": true,
+    "emacs-mcx.useMetaPrefixEscape": true,
+    "emacs-mcx.killRingMax": 60,
+    "emacs-mcx.moveBeginningOfLineBehavior": "emacs",
+    "emacs-mcx.moveEndOfLineBehavior": "emacs",
+    "emacs-mcx.scrollUpCommandBehavior": "emacs",
+    "emacs-mcx.scrollDownCommandBehavior": "emacs",
+    "emacs-mcx.cursorMoveOnFindWidget": true,
+
+    // =========================================================================
+    // GIT (Magit equivalent)
+    // Extensions: eamodio.gitlens, mhutchie.git-graph
+    // =========================================================================
+    "git.enabled": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.showPushSuccessNotification": true,
+    "git.promptToSaveFilesBeforeCommit": "always",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.wordWrap": "off",
+    "gitlens.codeLens.enabled": true,
+    "gitlens.currentLine.enabled": true,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.statusBar.enabled": true,
+    "gitlens.views.repositories.location": "scm",
+
+    // =========================================================================
+    // LANGUAGE-SPECIFIC SETTINGS
+    // =========================================================================
+
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.rulers": [79, 120],
+        "editor.wordWrap": "off"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.tabSize": 4
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.tabSize": 4
+    },
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[lua]": {
+        "editor.tabSize": 4
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.tabSize": 2
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced"
+    },
+    "[toml]": {
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2
+    },
+
+    // =========================================================================
+    // WRITING — Olivetti-like per-language overrides
+    // Emacs: visual-line-mode, olivetti in org/markdown, flyspell in text-mode
+    // =========================================================================
+
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 80,
+        "editor.lineNumbers": "off",
+        "editor.quickSuggestions": { "other": "off", "comments": "off", "strings": "off" },
+        "editor.minimap.enabled": false,
+        "editor.glyphMargin": false,
+        "editor.folding": false,
+        "editor.renderWhitespace": "none"
+    },
+    "[org]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 80,
+        "editor.lineNumbers": "off",
+        "editor.quickSuggestions": { "other": "off", "comments": "off", "strings": "off" },
+        "editor.minimap.enabled": false,
+        "editor.glyphMargin": false
+    },
+    "[plaintext]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 80,
+        "editor.lineNumbers": "off",
+        "editor.quickSuggestions": { "other": "off", "comments": "off", "strings": "off" }
+    },
+
+    "markdown.preview.fontFamily": "'Iosevka Nerd Font', 'D2Coding', 'Noto Sans CJK KR', monospace",
+    "markdown.preview.fontSize": 14,
+    "markdown.preview.lineHeight": 1.6,
+
+    // =========================================================================
+    // DIAGNOSTICS (Flymake equivalent)
+    // =========================================================================
+    "problems.decorations.enabled": true,
+    "problems.showCurrentInStatus": true,
+
+    // =========================================================================
+    // TERMINAL
+    // =========================================================================
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 3,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.gpuAcceleration": "auto",
+
+    // =========================================================================
+    // MISC
+    // =========================================================================
+    "window.confirmBeforeClose": "never",
+    "window.restoreWindows": "all",
+    "editor.links": true,
+    "editor.hover.enabled": "on",
+    "editor.hover.delay": 300,
+    "editor.parameterHints.enabled": true,
+    "diffEditor.experimental.showMoves": true,
+    "telemetry.telemetryLevel": "off",
+    "workbench.enableExperiments": false,
+    "workbench.editor.tabActionCloseVisibility": false,
+    "zenMode.showTabs": "single",
+    "security.promptForLocalFileProtocolHandling": false,
+    "claudeCode.preferredLocation": "panel"
+}
