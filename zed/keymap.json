@@ -1,0 +1,127 @@
+// =============================================================================
+// Zed Keymap — Vim base, Emacs-like insert mode
+// Base keymap is Vim (settings.json: "vim_mode": true).
+// The Emacs navigation/editing bindings below apply ONLY in Vim INSERT mode.
+// Normal / Visual modes stay pure Vim.
+// =============================================================================
+[
+    // =========================================================================
+    // EDITOR (INSERT MODE ONLY) — Emacs navigation & editing
+    // =========================================================================
+    {
+        "context": "Editor && vim_mode == insert",
+        "bindings": {
+            // Basic cursor movement
+            "ctrl-f": "editor::MoveRight",
+            "ctrl-b": "editor::MoveLeft",
+            "ctrl-n": "editor::MoveDown",
+            "ctrl-p": "editor::MoveUp",
+            "ctrl-a": "editor::MoveToBeginningOfLine",
+            "ctrl-e": "editor::MoveToEndOfLine",
+            "alt-f": "editor::MoveToNextWordEnd",
+            "alt-b": "editor::MoveToPreviousWordStart",
+
+            // Selection with shift
+            "ctrl-shift-f": "editor::SelectRight",
+            "ctrl-shift-b": "editor::SelectLeft",
+            "ctrl-shift-n": "editor::SelectDown",
+            "ctrl-shift-p": "editor::SelectUp",
+            "ctrl-shift-a": "editor::SelectToBeginningOfLine",
+            "ctrl-shift-e": "editor::SelectToEndOfLine",
+            "alt-shift-f": "editor::SelectToNextWordEnd",
+            "alt-shift-b": "editor::SelectToPreviousWordStart",
+
+            // Jump to beginning/end of buffer
+            "alt-shift-.": "editor::MoveToEnd",
+            "alt-shift-,": "editor::MoveToBeginning",
+
+            // Smart select (expand/shrink)
+            "alt-h": "editor::SelectLargerSyntaxNode",
+            "alt-shift-h": "editor::SelectSmallerSyntaxNode",
+
+            // Delete
+            "ctrl-d": "editor::Delete",
+            "ctrl-k": "editor::CutToEndOfLine",
+            "alt-d": "editor::DeleteToNextWordEnd",
+            "alt-backspace": "editor::DeleteToPreviousWordStart",
+
+            // Kill/copy/paste (Emacs style)
+            "ctrl-w": "editor::Cut",
+            "alt-w": "editor::Copy",
+            "ctrl-y": "editor::Paste",
+
+            // Search
+            "ctrl-s": "buffer_search::Deploy",
+            "ctrl-r": "buffer_search::Deploy",
+
+            // Cancel / keyboard quit
+            "ctrl-g": "editor::Cancel",
+
+            // Select all
+            "ctrl-x h": "editor::SelectAll",
+
+            // Undo/redo
+            "ctrl-/": "editor::Undo",
+            "ctrl-shift-/": "editor::Redo",
+
+            // Exit to Vim Normal mode without leaving the home row
+            "j k": "vim::NormalBefore"
+        }
+    },
+
+    // =========================================================================
+    // LEADER (NORMAL MODE) — Space leader, common shortcuts
+    // =========================================================================
+    {
+        "context": "vim_mode == normal",
+        "bindings": {
+            "space w": "workspace::Save",           // save
+            "space q": "pane::CloseActiveItem",     // close tab
+            "space f": "file_finder::Toggle",       // find file
+            "space /": "workspace::NewSearch",      // project-wide search
+            "space h": "buffer_search::Dismiss"     // clear search highlight
+        }
+    },
+
+    // =========================================================================
+    // VISUAL MODE — keep selection on indent, move selected lines
+    // =========================================================================
+    {
+        "context": "vim_mode == visual",
+        "bindings": {
+            ">": "editor::Indent",
+            "<": "editor::Outdent",
+            "shift-j": "editor::MoveLineDown",
+            "shift-k": "editor::MoveLineUp"
+        }
+    },
+
+    // =========================================================================
+    // BUFFER SEARCH — Emacs-style next/previous match
+    // Completes the C-s / C-r incremental search started from insert mode.
+    // =========================================================================
+    {
+        "context": "BufferSearchBar",
+        "bindings": {
+            "ctrl-s": "search::SelectNextMatch",
+            "ctrl-r": "search::SelectPrevMatch",
+            "ctrl-g": "buffer_search::Dismiss"
+        }
+    },
+
+    // =========================================================================
+    // TERMINAL — Emacs/readline navigation (independent of Vim mode)
+    // =========================================================================
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-f": ["terminal::SendKeystroke", "right"],
+            "ctrl-b": ["terminal::SendKeystroke", "left"],
+            "ctrl-p": ["terminal::SendKeystroke", "up"],
+            "ctrl-n": ["terminal::SendKeystroke", "down"],
+            "ctrl-a": ["terminal::SendKeystroke", "home"],
+            "ctrl-e": ["terminal::SendKeystroke", "end"],
+            "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"]
+        }
+    }
+]

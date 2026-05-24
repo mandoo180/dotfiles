@@ -1,1 +1,7 @@
 *.bkp
+
+# macOS
+.DS_Store
+
+# Backup files (e.g. created by setup scripts)
+*.bak
